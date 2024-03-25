@@ -1,0 +1,62 @@
+/* Card.css */
+
+.memoryGame {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 10px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.memoryCard {
+    position: relative;
+    width: 100%;
+    height: 150px;
+    perspective: 1000px;
+    cursor: pointer;
+    transform-style: preserve-3d;
+    transition: transform 0.5s ease-in-out;
+}
+
+.memoryCard:hover {
+    transform: scale(1.05);
+}
+
+.memoryCard.active,
+.memoryCard.disabled {
+    transform: rotateY(180deg);
+}
+
+.memoryCard.disabled .back {
+    background-color: #ddd;
+}
+
+.memoryCard .back,
+.memoryCard .front {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    font-weight: bold;
+    color: #fff;
+    border-radius: 8px;
+    backface-visibility: hidden;
+}
+
+.memoryCard .back {
+    background-color: #3498db;
+}
+
+.memoryCard .front {
+    transform: rotateY(180deg);
+    background-color: #2ecc71;
+}
+
+.front img {
+    max-width: 100%;
+    max-height: 100%;
+    border-radius: 8px;
+}
